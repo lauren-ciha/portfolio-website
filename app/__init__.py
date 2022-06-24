@@ -81,6 +81,10 @@ def ruchika():
 def template_test():
     return render_template('sample_page.html', name = name, experience_list=experience_list, education_list=education_list, hobby_list = hobby_list, url=os.getenv("URL"))
 
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html', title="Timeline", timeline=get_time_line_post())
+
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
     name = request.form['name']
