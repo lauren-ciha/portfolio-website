@@ -3,7 +3,7 @@
 user="$(whoami)"
 
 # Safety check: don't allow me to redeploy site from local machine (for now)
-if [[ $var == *"root"* ]]; then
+if [[ $user == *"root"* ]]; then
   echo "On SSH"
 else
   echo "On local machine. Try again on SSH."
