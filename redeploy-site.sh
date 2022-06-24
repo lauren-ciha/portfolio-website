@@ -1,17 +1,15 @@
 #!/bin/bash
 
-user="$(whoami)"
+# Automatically redeploys site from within the VPS. Assumes it will be run in /root
 
-# Safety check: don't allow me to redeploy site from local machine (for now)
+# Safety check: don't allow deployment from local machine (for now)
+user="$(whoami)"
 if [[ $user == *"root"* ]]; then
   echo "On SSH"
 else
   echo "On local machine. Try again on SSH."
   exit 0
 fi
-
-# Kill all existing tmux sessions. This is to kill any existing flask server that might be running in the background.
-tmux kill-server
 
 # cd into your project folder.
 cd project-shiny_sharks
@@ -24,7 +22,6 @@ cd python3-virtualenv
 python -m ensurepip --upgrade
 pip3 install -r ~/project-shiny_sharks/requirements.txt
 
-# Start a new detached Tmux session that goes to the project directory, enters the python virtual environment and starts the Flask server.
+# Restarts the flask app with myportfolio.service
 cd ~/project-shiny_sharks
-tmux new -d -s portfolio
-tmux send-keys -t portfolio: 'source python3-virtualenv/bin/activate' 'Enter' 'export FLASK_APP=app' 'Enter' 'export FLASK_ENV=production' 'Enter' 'flask run --host=shiny-shark.duckdns.org' 'Enter'
+systemctl restart myportfolio
