@@ -1,5 +1,15 @@
 #!/bin/bash
 
+user="$(whoami)"
+
+# Safety check: don't allow me to redeploy site from local machine (for now)
+if [[ $var == *"root"* ]]; then
+  echo "On SSH"
+else
+  echo "On local machine. Try again on SSH."
+  exit 0
+fi
+
 # Kill all existing tmux sessions. This is to kill any existing flask server that might be running in the background.
 tmux kill-server
 
