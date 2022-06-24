@@ -1,0 +1,74 @@
+<!-- add a form that accepts inputs and makes a POST request to our /api/timeline_post endpoint to create a timeline post. -->
+
+<!-- Beneath the form, we should display all our timeline posts in the descending order. On submitting a new timeline post, the page should show the newly added timeline post. Make the page look however you'd like! -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Timeline</title>
+        <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/timeline.css') }}""> <!-- don't know why this isn't working anymore-->
+    </head>
+    <body>
+        <form class="form" id="form">
+            <div class ="form-item">
+                <input name="name" type="text" class="form-input"
+                 placeholder="name" aria-label="name">
+            </div>
+            
+            <div class ="form-item">
+                <input name="email" type="text" class="form-input"
+                 placeholder="email" aria-label="email">
+            </div>
+            
+            <div class ="form-item">
+                <input name="content" type="content" class="form-input"
+                placeholder="content" aria-label="content">
+            </div>
+            
+            <button class="form-button"
+            type="submit">Post</button>
+        </form>
+
+        <div class="table-section">
+            <table class="table">
+                <thead>
+                  <tr><h1 class="table-head">Posts</h1>
+                  </tr>
+                </thead>
+                <tbody class="table-body">
+                {% for post in timeline['timeline_posts'] %}
+                 <tr>
+                        <!-- Fields are id, name, email, content, created_at (a datetime) -->
+                        <div class="post-row">
+                           Name: {{ post.name }}
+                           Email: {{ post.email }}
+                           Content: {{ post.content }}
+                           created_at: {{ post.created_at }}
+                        </div>
+                 </tr>
+                {% endfor %}
+                </tbody>
+              </table>            
+        </div>
+
+        <script>
+            const form = document.getElementById('form');
+            
+            form.addEventListener('submit', async(e) => {
+            e.preventDefault();
+            const payload = new FormData(form);
+
+            // Post using Fetch:
+            await fetch('/api/timeline_post', {
+                method: 'POST',
+                body: payload,
+                })
+                location.reload()
+            });
+
+        </script>
+    
+    </body>
+</html>
