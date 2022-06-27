@@ -3,28 +3,31 @@ p, h1, h2, h3, h4, h5, h6, button {
 }
 
 body {
+    
     width: auto; 
     overflow-x: hidden;
-    font-family: "Roboto", serif;
-    margin: 0px;
-    opacity: 1;
+    font-family: "Roboto", serif; 
+    margin: 0;
 }
 
-/*
-* Below is the section coding the background image
-*/
-body::before{
-    content: '';
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    background-image: url('https://media.giphy.com/media/lFNmSjRDN9SiLJ3a9Z/giphy-downsized-large.gif');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    opacity: .5;
-}
+#gif {
+    position: fixed; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+  }
+  #gif img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 50%;
+    min-height: 50%;
+    opacity: 50%;
+  }
 
 .buttons{
     position: relative; /* make sure the other elements that are in the same container on HTML have this*/
@@ -47,11 +50,13 @@ body::before{
     display: inline-flex;
     height: 60%;
     width: 350px;
+    opacity: 1;
 }
 
 .nav-content .nav-logo {
     height: 60px;
     margin: auto;
+    opacity: 1;
 }
 
 .nav-logo {
@@ -59,11 +64,13 @@ body::before{
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 1;
 }
 
 .nav-logo img {
     position: relative; /* ^ */ 
     width: 200px;
+    opacity: 1;
 }
 
 .nav-content nav {
@@ -124,4 +131,8 @@ body::before{
     color: white;
     font-size: 50px;
     font-weight: 700;
+}
+
+.masthead-avatar mb-5 {
+    position: relative;
 }

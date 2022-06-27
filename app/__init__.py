@@ -57,13 +57,9 @@ sashaExperience = ["Fellow, MLH PE Fellowship", "Video Editor, McMaster Silhouet
 sashaEducation = ["McMaster University", "OCAD U"]
 sashaHobbies = ["Photography", "Games", "Reading"]
 
-@app.route('/home', methods=['GET', 'POST'])
-def home():
-    return render_template('homePage.html', title="Index Page", url=os.getenv("URL"))
-
 @app.route('/', methods=['GET', 'POST'])
-def index():
-    return render_template('homePage.html', title="Index Page", url=os.getenv("URL"))
+def home():
+    return render_template('index.html', title="Index Page", url=os.getenv("URL"))
 
 @app.route('/sasha', methods=['GET', 'POST'])
 def sasha():
@@ -76,10 +72,6 @@ def lauren():
 @app.route('/ruchika', methods= ['POST', 'GET'])
 def ruchika():
     return render_template('ruchika.html', title="Ruchika Page", experience_list=ruchikaExperience, education_list=ruchikaEducation, hobby_list = ruchikaHobbies, url=os.getenv("URL"))
-
-@app.route('/sample')
-def template_test():
-    return render_template('sample_page.html', name = name, experience_list=experience_list, education_list=education_list, hobby_list = hobby_list, url=os.getenv("URL"))
 
 @app.route('/timeline')
 def timeline():
