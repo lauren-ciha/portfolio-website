@@ -26,7 +26,6 @@
 
 <body>
   <div id="gif">
-    <img src="https://media.giphy.com/media/lFNmSjRDN9SiLJ3a9Z/giphy-downsized-large.gif" alt="background-image" />
   </div>
 
   <!--Navigation Bar-->
@@ -42,8 +41,6 @@
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ url_for('lauren')}}">Lauren</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ url_for('sasha')}}">Sasha</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ url_for('ruchika')}}">Ruchika</a></li>
         </ul>
       </div>
     </div>
@@ -56,14 +53,12 @@
         
     <!-- Heading Row-->
     <div class="row gx-4 gx-lg-5 align-items-center my-5" style="position: relative">
-      <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="./static/img/shinySharksLogo.png" alt="..." style="width:900px;height:300px;"/></div>
+      <div class="col-lg-7"></div>
         <div class="col-lg-5">
-          <h1 class="display-3 text-secondary font-weight-bold">We are the <br>Shiny Sharks</h1>
         </div>
       </div>
 
       <div class="card text-white bg-secondary my-5 py-4 text-center">
-        <div class="card-body"><p class="display-4 text-white m-0">More about the shiny sharks</p></div>
       </div>
 
       <section id="about"></section>
@@ -82,31 +77,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h2 class="card-title">Sasha</h2>
-                            <img class="marginauto" src="./static/img/sasha.jpg" style="width:280px;height:350px;" alt="..." />
-                        </div>
-                        <div class="card-footer">
-                            <a href="{{ url_for('sasha')}}" class="btn btn-primary">Learn More</a>
-                        </div>
-                        
-                        <!--<div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Learn More</a></div>-->
-                    </div>
-                </div>
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h2 class="card-title">Ruchika</h2>
-                            <img class="marginauto" src="./static/img/ruchika.jpg" style="width:280px;height:350px;" alt="..." />
-                        </div>
-                        <div class="card-footer">
-                            <a href="{{ url_for('ruchika')}}" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
