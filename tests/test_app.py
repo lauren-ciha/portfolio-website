@@ -16,8 +16,6 @@ class AppTestCase(unittest.TestCase):
         
         # Checking that sections for each member is loaded on the home page
         assert "Lauren" in html
-        assert "Sasha" in html
-        assert "Ruchika" in html
 
     # Testing your member page
     def test_lauren(self):
