@@ -17,11 +17,8 @@ cd project-shiny_sharks
 # Run `git fetch && git reset origin/main --hard` to make sure the git repository inside your VPS has the latest changes from the main branch on GitHub.
 git fetch && git reset origin/main --hard
 
-# Enter the python virtual environment and Install python dependencies.
-cd python3-virtualenv
-python -m ensurepip --upgrade
-pip3 install -r ~/project-shiny_sharks/requirements.txt
+# Spin containers down to prevent out of memory issues on our VPS instances when building in the next step
+docker compose -f docker-compose.prod.yml down
 
-# Restarts the flask app with myportfolio.service
-cd ~/project-shiny_sharks
-systemctl restart myportfolio
+# Build and spin up!
+docker compose -f docker-compose.prod.yml up -d --build
