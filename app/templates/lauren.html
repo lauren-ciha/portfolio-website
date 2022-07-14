@@ -1,182 +1,137 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
-    <body id="page-top">
-        
-    <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-
-    <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
-    <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
-    <title>{{ title }}</title>
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
-                
-                    <a class="navbar-brand"><form method="post" action="/"><input class="btn btn-primary btn-sm" type=submit value="Home" name="homeButton"/>
-                        </form></a>
-                    
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About Me</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#education">Education</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#hobbies">Hobbies</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#work">Work Experience</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#locations">Places Visited</a></li>
-                    </ul>
+{% block body %}
+    <!-- Landing Page -->
+    <section id="intro">
+        <div class="container">
+            <div class="split">
+                <div class="intro-text">
+                    <!-- Intro Text-->
+                    <div class="intro-text-inner">
+                        <h1 class="intro-heading">Hi! I'm Lauren.</h1>
+                        <p>I'm an up and coming software engineer exploring technology and what it means for us.</p>
+                    </div>
+                    <p class="buttons-social"> 
+                        <a class="button-social" href="https://linkedin.com/in/lauren-ciha"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="button-social" href="https://calendly.com/lauren-ciha"><i class="fas fa-calendar-alt"></i></a>
+                        <a class="button-social" href="https://github.com/lauren-ciha"><i class="fab fa-github"></i></a>
+                    </p>
+                </div>
+                <div>
+                    <img class="headshot" src="./static/img/lauren.jpg" alt="My current headshot" />
                 </div>
             </div>
-        </nav>
+        </div>    
+    </section>
 
-         <!-- Masthead-->
-         <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="./static/img/lauren.jpg" alt="..." />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Lauren Ciha</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-
-            </div>
-            
-        </header>
-    </head>
-    <!-- white line
-    <body>
-        <p></p>
-    </body>
--->
-    <!-- About Me Section-->
-    <section class="page-section bg-primary text-white mb-0" id="about">
+    <!-- About Me -->
+    <section id="about" class="bg-alternate">
         <div class="container">
             <!-- About Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-white">About Me</h2>
-            <!-- Icon Divider-->
-            <p class="masthead-subheading"> 
-                <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/lauren-ciha"><i class="fab fa-github"></i></a>
-                <a class="btn btn-outline-light btn-social mx-1" href="https://calendly.com/lauren-ciha"><i class="fas fa-calendar-alt"></i></a>
-                <a class="btn btn-outline-light btn-social mx-1" href='https://www.linkedin.com/in/lauren-ciha/'><i class="fab fa-fw fa-linkedin-in"></i></a>
-            </p>
+            <h2 class="section-title">About Me</h2>
+
             <!-- About Section Content-->
-            <div class="row">
-                <div class="col-lg-4 ms-auto"><p class="lead">
-                    Hi! I'm a rising senior studying computer sciences and philosophy at the University of Wisconsin-Madison. My experience so far has been in Java, C#/Unity, and Python in research settings. In the first half of 2020, I taught myself C# and Unity to program the movement of a virtual reality character. I'm searching for new internships, co-ops, and/or full-time roles in the corporate world.
-                </p></div>
+            <div>
+                <p>I'm a rising senior studying computer sciences and philosophy at the University of Wisconsin-Madison. My experience includes Java, C#/Unity, and Python. In the first half of 2020, I taught myself C# and Unity to program the movement of a virtual reality character.</p>
+                <p>Although I'm currently in Madison, I would love to live outside of the Midwest as an intern or after I graduate. Outside of programming, I enjoy reading (often several books at the same time), writing, and spending as much time by Madison's lakes as I can.</p>
+                <p>I'm searching for internships, co-ops, and/or full-time roles starting as soon as fall 2022.</p>
             </div>
-            <!-- About Section Button-->
-            
+        </div>
     </section>
+
+    <!-- Work Section-->
+    <section id="work">
+        <div class="container">
+            <!-- Work Heading-->
+            <h2 class="section-title">Work Experience</h2>
     
+            <!-- Work Section Content-->
+            <div class="split">
+                <div class="card">
+                    <div class="card-content">
+                        <img src="./static/img/virtual-brain.png">
+                        <h2>{{experience_list[0]}}</h2></a>
+                        <p>I contributed to the UW Virtual Brain project, a VR experience that reveals how interprets sensory information.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <img src="./static/img/tabula.png">
+                        <h2>{{experience_list[1]}}</h2>
+                        <p>I'm building a drawing interface that lets you create a robot path!</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <img src="./static/img/mlh.jpg">
+                        <h2>{{experience_list[2]}}</h2>
+                        <p>I'm creating, testing, and deploying this website on a virtual private server with the mentorship of Meta employees.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Education Section-->
-    <section class="page-section bg-primary text-white mb-0" id="education">
+    <section id="education" class="bg-alternate">
         <div class="container">
             <!-- Education Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-white">Education</h2>
-            <!-- Icon Divider-->
-            <div class="divider-custom divider-light">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
+            <h2 class="section-title">Education</h2>
+    
             <!-- Education Section Content-->
-            <div class="row">
-                <div class="col-lg-4 ms-auto"><p class="lead">
-                    <ul>
-                        {% for n in education_list %}
-                        <li>{{n}}</li>
-                        {% endfor %}
-                    </ul> 
-                </p></div>
+            <div>
+                <p>
+                    {{university}}, {{years}}
+                    <br>
+                    {{degree}}
+                    <br>
+                    <br>
+                    Organizations: WACM, Girls Who Code
+                </p> 
             </div>
-            <!-- Education Section Button-->
-            
     </section>
 
     <!-- Hobbies Section-->
-    <section class="page-section bg-primary text-white mb-0" id="hobbies">
+    <section id="hobbies">
         <div class="container">
             <!-- Hobbies Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-white">Hobbies</h2>
-            <!-- Icon Divider-->
-            <div class="divider-custom divider-light">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
+            <h2 class="section-title">Hobbies</h2>
+
             <!-- Hobbies Section Content-->
-            <div class="row">
-                <div class="col-lg-4 ms-auto"><img class="img-fluid rounded mb-4 mb-lg-0" src="./static/img/lauren_travel.jpg" alt="..." /></div>
-                <div class="col-lg-4 ms-auto"><img class="img-fluid rounded mb-4 mb-lg-0" src="./static/img/pexels-pixabay-159866.jpg" alt="..." /></div>
-                <div class="col-lg-4 ms-auto"><img class="img-fluid rounded mb-4 mb-lg-0" src="./static/img/creative-606541.jpg" alt="..." /></div>
-            <div class="row">
-                <div class="col-lg-4 ms-auto"><p class="lead">
-                    <ul>
-                        {% for n in hobby_list %}
-                        <li>{{n}}</li>
-                        {% endfor %}
-                    </ul>
-                </p></div>
-                
+            <div class="split">
+                <div class="card">
+                    <div class="card-content">
+                        <img src="./static/img/book.jpg">
+                        <div>
+                            <h2>{{ hobby_list[0] }} </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./static/img/journal.jpg">
+                    <div>
+                        <h2>{{ hobby_list[1] }} </h2>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./static/img/sneakers.jpg">
+                    <div>
+                        <h2>{{ hobby_list[2] }} </h2>
+                    </div>
+                </div>
             </div>
-            <!-- Hobbies Section Button-->
-            
     </section>
-        <!-- Work Section-->
-        <section class="page-section bg-primary text-white mb-0" id="work">
-            <div class="container">
-                <!-- Work Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">Work Experience</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Work Section Content-->
-                <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">
-                        <ul>
-                            {% for n in experience_list %}
-                            <li>{{n}}</li>
-                            {% endfor %}
-                        </ul>   
-                    </p></div>
-                </div>
-                <!-- Work Section Button-->
-                
-        </section>
-        <!-- Location Section-->
-        <section class="page-section bg-primary text-white mb-0" id="locations">
-            <div class="container">
-                <!-- Location Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">Cool Places I've Been</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Location Section Content-->
-                <div class="row">
-                    <!-- put the map iframe here -->
-                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1XH7YSZNH1D0C2EyBt-MWoSai8VBj-zg&ehbc=2E312F" width="640" height="480"></iframe>
-                </div>
-        </section>
-</html> 
+
+    <!-- Location Section-->
+    <section id="locations" class="bg-alternate">
+        <div class="container">
+            <!-- Location Heading-->
+            <h2 class="section-title">Cool Places I've Been</h2>
+
+            <!-- Location Section Content-->
+            <div class="responsive-iframe">
+                <!-- put the map iframe here -->
+                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1XH7YSZNH1D0C2EyBt-MWoSai8VBj-zg&ehbc=2E312F"></iframe>
+            </div>
+    </section>
+{% endblock %}
