@@ -18,9 +18,7 @@ cd portfolio-website
 git fetch && git reset origin/main --hard
 
 # Spin containers down to prevent out of memory issues on our VPS instances when building in the next step
-docker rm mysql
 docker compose -f docker-compose.prod.yml down
 
 # Build and spin up!
-docker rm mysql
 docker compose -f docker-compose.prod.yml up -d --build
