@@ -22,4 +22,5 @@ docker rm mysql
 docker compose -f docker-compose.prod.yml down
 
 # Build and spin up!
+docker rm mysql
 docker compose -f docker-compose.prod.yml up -d --build
