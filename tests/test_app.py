@@ -8,27 +8,19 @@ class AppTestCase(unittest.TestCase):
     def setUp(self):
         self.client = app.test_client()
 
+    # Testing your home/member page
     def test_home(self):
         response = self.client.get("/")
         assert response.status_code == 200
         html = response.get_data(as_text=True)
-        assert "<title>Index Page</title>" in html
-        
-        # Checking that sections for each member is loaded on the home page
-        assert "Lauren" in html
+        assert "<title>Lauren Ciha</title>" in html
 
-    # Testing your member page
-    def test_lauren(self):
-        response = self.client.get("/lauren")
-        assert response.status_code == 200
-        html = response.get_data(as_text=True)
-        assert "<title>Lauren</title>" in html
-        
         # Checking that sections on the member page are present
         assert "About Me" in html
         assert "Hobbies" in html
         assert "Education" in html
-
+        assert "Experience" in html
+        assert "Timeline" in html
         
     def test_timeline(self):
         response = self.client.get("/api/timeline_post")
@@ -43,12 +35,20 @@ class AppTestCase(unittest.TestCase):
         assert page_response.status_code == 200
         # Testing timeline page content
         timeline_html = page_response.get_data(as_text=True)
+
         # Asserting correct input fields on page
         assert 'name="name"' in timeline_html
         assert 'name="email"' in timeline_html
         assert 'name="content"' in timeline_html
 
+        # Asserting correct input in the timeline post when a post is made
+        response = self.client.post("/api/timeline_post", data = {"name": "John", "email": "john@email.com", "content": "Hello world, I'm John"})
+        assert response.status_code == 200
 
+        json = response.get_json()
+        assert json.get("name") == "John"
+        assert json.get("email") == "john@email.com"
+        assert json.get("content") == "Hello world, I'm John"
 
     def test_malformed_timeline_post(self):
         # POST request missing name
